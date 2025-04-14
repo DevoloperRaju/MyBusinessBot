@@ -1,11 +1,11 @@
+require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 
-// Directly use the token
-const token = '6114573552:AAGM4fpQcruVb_4icFjU7DitNG0Q3tpFOXo';
+const token = process.env.BT || 'YOUR_FALLBACK_TOKEN_HERE';
+
 const bot = new TelegramBot(token, { polling: true });
 
-// Load all command files
 fs.readdirSync('./commands').forEach(file => {
   const command = require(`./commands/${file}`);
   command(bot);
