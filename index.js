@@ -1,8 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 
-// Replace with your bot token
-const token = '6114573552:AAGM4fpQcruVb_4icFjU7DitNG0Q3tpFOXo';
+// Get token from environment variable
+const token = process.env.BotToken;
 const bot = new TelegramBot(token, { polling: true });
 
 // Load all command files
