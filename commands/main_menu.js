@@ -1,14 +1,14 @@
 module.exports = (bot, chatId) => {
-  const options = {
+  bot.sendMessage(chatId, 'Please choose an option from the menu below:', {
     reply_markup: {
       keyboard: [
-        [{ text: 'Option 1' }, { text: 'Option 2' }],
-        [{ text: 'Option 3' }]
+        ['🧾 Balance', '👥 Referral'],
+        ['✅ Daily Task', '🆘 Support'],
+        ['🏆 Achievement', '🙍‍♂️ Profile'],
+        ['🚀 Our Project', '➡️ Next Page']
       ],
-      resize_keyboard: true,
-      one_time_keyboard: false,
-    },
-  };
-
-  bot.sendMessage(chatId, 'Please choose an option:', options);
+      resize_keyboard: true, // মোবাইলে সুন্দর দেখানোর জন্য
+      one_time_keyboard: false // বারবার দেখানোর জন্য false
+    }
+  });
 };
