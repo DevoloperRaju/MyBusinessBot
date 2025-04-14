@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 
 // Get token from environment variable
-const token = process.env.BotToken;
+const token = process.env.BT;
 const bot = new TelegramBot(token, { polling: true });
 
 // Load all command files
