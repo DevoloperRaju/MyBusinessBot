@@ -1,15 +1,14 @@
 const TelegramBot = require('node-telegram-bot-api');
+const fs = require('fs');
 
-// তোমার BotFather টোকেন
+// Replace with your bot token
 const token = '6114573552:AAGM4fpQcruVb_4icFjU7DitNG0Q3tpFOXo';
-
-// Create bot
 const bot = new TelegramBot(token, { polling: true });
 
-bot.onText(/\/start/, (msg) => {
-  bot.sendMessage(msg.chat.id, 'Hi! I am alive.');
+// Load all command files
+fs.readdirSync('./commands').forEach(file => {
+  const command = require(`./commands/${file}`);
+  command(bot);
 });
 
-bot.on('message', (msg) => {
-  console.log(msg);
-});
+console.log('Bot is running...');
