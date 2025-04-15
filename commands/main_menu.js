@@ -1,16 +1,22 @@
-module.exports = (bot) => {
-  bot.onText(/\/start/, (msg) => {
-    sendMainMenu(bot, msg.chat.id);
-  });
+const sendNextMenu = require('./next_menu');
 
-  bot.onText(/➡️ Next Page/, (msg) => {
-    const nextMenu = require('./next_menu');
-    nextMenu(bot, msg);
+module.exports = (bot) => {
+  bot.on('message', (msg) => {
+    const chatId = msg.chat.id;
+    const text = msg.text;
+
+    if (text === '➡️ Next Page') {
+      sendNextMenu(bot, chatId);
+    }
+
+    else if (text === '⬅️ Previous Page') {
+      sendMainMenu(bot, chatId, 'Back to Main Menu!');
+    }
   });
 };
 
-function sendMainMenu(bot, chatId) {
-  bot.sendMessage(chatId, 'Welcome to the Main Menu! Please choose an option below:', {
+function sendMainMenu(bot, chatId, customMessage = 'Welcome to the Main Menu! Please choose an option below:') {
+  const menu = {
     reply_markup: {
       keyboard: [
         ['🧾 Balance', '👥 Referral'],
@@ -20,5 +26,9 @@ function sendMainMenu(bot, chatId) {
       ],
       resize_keyboard: true
     }
-  });
+  };
+
+  bot.sendMessage(chatId, customMessage, menu);
 }
+
+module.exports = sendMainMenu; // export the sendMainMenu function
