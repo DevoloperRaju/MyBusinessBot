@@ -1,6 +1,15 @@
-const TelegramBot = require('node-telegram-bot-api');
-const token = 'YOUR_BOT_TOKEN';
-const bot = new TelegramBot(token, { polling: true });
+module.exports = (bot, chatId) => {
+  const nextMenu = {
+    reply_markup: {
+      keyboard: [
+        ['🎁 Gift Code', '🕑 History'],
+        ['📢 Notice', '🧩 Learn About IoLent'],
+        ['💰 Send Money', '💎 Send Diamond'],
+        ['⬅️ Previous Page', '🏅 LeaderBoard']
+      ],
+      resize_keyboard: true
+    }
+  };
 
-require('./commands/start')(bot);
-require('./commands/main_menu')(bot);
+  bot.sendMessage(chatId, 'Welcome to the Next Menu! Please choose an option below:', nextMenu);
+};
