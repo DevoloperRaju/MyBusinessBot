@@ -1,4 +1,4 @@
-const mainMenu = require('./main_menu');
+const sendMainMenu = require('./main_menu');
 
 module.exports = (bot) => {
   bot.onText(/\/start/, (msg) => {
@@ -12,7 +12,7 @@ Please select from the menu below.
 
     bot.sendMessage(chatId, welcomeMessage.trim())
       .then(() => {
-        mainMenu(bot, chatId);
+        sendMainMenu(bot, chatId);
       });
   });
 };
