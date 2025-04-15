@@ -10,9 +10,11 @@ module.exports = (bot, chatId) => {
 💎 *Diamond Balance:* \`${diamondBalance} 💎\`
 ━━━━━━━━━━━━━━━
 
-🔁 *Note:* You earn *1%* daily income based on your diamond balance.
+🔁 *Note:* You earn *1%* daily income based on your diamond balance.  
 💸 *Payout every Friday night automatically!*
- If you need to change wallet, go to profile and edit your all details `; 
+
+⚙️ If you need to change wallet, go to *Profile* and edit your details.
+  `;
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' });
 };
