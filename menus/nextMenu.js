@@ -3,8 +3,9 @@ module.exports = (bot, chatId) => {
     reply_markup: {
       keyboard: [
         ['🎁 Gift Code', '🕑 History'],
-        ['📢 Notice', '🧩 Learn About IoLent'],
+        ['📢 Notice', '👥 Our Admin'],
         ['💰 Send Money', '💎 Send Diamond'],
+        ['🧩 Learn About IoLent'],
         ['⬅️ Previous Page', '🏅 LeaderBoard']
       ],
       resize_keyboard: true
