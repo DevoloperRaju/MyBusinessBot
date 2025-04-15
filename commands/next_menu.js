@@ -9,6 +9,7 @@ module.exports = (bot) => {
         keyboard: [
           ['🎁 Gift Code', '🕑 History'],
           ['📢 Notice', '🧩 Learn About IoLent'],
+          ['💰 Send Money', 💎 Send Diamond'],
           ['⬅️ Previous Page', '🏅 LeaderBoard']
         ],
         resize_keyboard: true
