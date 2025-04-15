@@ -25,5 +25,7 @@ bot.on('message', (msg) => {
     require('./menus/nextMenu')(bot, chatId);
   } else if (text === '⬅️ Previous Page') {
     require('./menus/mainMenu')(bot, chatId);
+  } else if (text === '🧾 Balance') {
+    require('./menus/balance')(bot, chatId);
   }
 });
