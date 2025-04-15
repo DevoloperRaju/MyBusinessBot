@@ -1,6 +1,6 @@
 module.exports = (bot, chatId) => {
-  const tkBalance = 12.50;
-  const diamondBalance = 1250;
+  const tkBalance = 00.00;
+  const diamondBalance = 1000;
 
   const message = `
 💼 *Your Wallet*
@@ -12,7 +12,7 @@ module.exports = (bot, chatId) => {
 
 🔁 *Note:* You earn *1%* daily income based on your diamond balance.
 💸 *Payout every Friday night automatically!*
-  `;
+ If you need to change wallet, go to profile and edit your all details `; 
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' });
 };
