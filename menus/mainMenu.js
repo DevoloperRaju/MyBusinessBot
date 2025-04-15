@@ -5,7 +5,8 @@ module.exports = (bot, chatId) => {
         ['🧾 Balance', '👥 Referral'],
         ['✅ Daily Task', '🆘 Support'],
         ['🏆 Achievement', '🙍‍♂️ Profile'],
-        ['🚀 Our Project', '➡️ Next Page']
+        ['🚀 Our Project'],
+        ['💰 To 💎', '➡️ Next Page']
       ],
       resize_keyboard: true
     }
