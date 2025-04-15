@@ -1,5 +1,5 @@
 module.exports = (bot, chatId) => {
-  const tkBalance = 00.00;
+  const tkBalance = 10.00;
   const diamondBalance = 1000;
 
   const message = `
