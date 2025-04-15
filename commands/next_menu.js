@@ -1,37 +1,6 @@
-const mainMenu = require('./main_menu');
+const TelegramBot = require('node-telegram-bot-api');
+const token = 'YOUR_BOT_TOKEN';
+const bot = new TelegramBot(token, { polling: true });
 
-module.exports = (bot) => {
-  bot.onText(/➡️ Next Page/, (msg) => {
-    const chatId = msg.chat.id;
-
-    const nextMenu = {
-      reply_markup: {
-        keyboard: [
-          ['🎁 Gift Code', '🕑 History'],
-          ['📢 Notice', '🧩 Learn About IoLent'],
-          ['💰 Send Money', '💎 Send Diamond'],
-          ['⬅️ Previous Page', '🏅 LeaderBoard']
-        ],
-        resize_keyboard: true
-      }
-    };
-
-    bot.sendMessage(chatId, 'Welcome to the Next Menu! Please choose an option below:', nextMenu);
-  });
-
-  // Previous Page (Go back to Main Menu)
-  bot.onText(/⬅️ Previous Page/, (msg) => {
-    require('./main_menu')(bot);
-    bot.sendMessage(msg.chat.id, 'Back to Main Menu!', {
-      reply_markup: {
-        keyboard: [
-          ['🧾 Balance', '👥 Referral'],
-          ['✅ Daily Task', '🆘 Support'],
-          ['🏆 Achievement', '🙍‍♂️ Profile'],
-          ['🚀 Our Project', '➡️ Next Page']
-        ],
-        resize_keyboard: true
-      }
-    });
-  });
-};
+require('./commands/start')(bot);
+require('./commands/main_menu')(bot);
