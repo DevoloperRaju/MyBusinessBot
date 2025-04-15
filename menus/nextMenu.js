@@ -5,7 +5,7 @@ module.exports = (bot, chatId) => {
         ['🎁 Gift Code', '🕑 History'],
         ['📢 Notice', '👥 Our Admin'],
         ['💰 Send Money', '💎 Send Diamond'],
-        ['🧩 Learn About IoLent'],
+        ['🧩 Learn About IoLent', '📢 Promot Me'],
         ['⬅️ Previous Page', '🏅 LeaderBoard']
       ],
       resize_keyboard: true
