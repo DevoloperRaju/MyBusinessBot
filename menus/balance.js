@@ -15,7 +15,7 @@ module.exports = (bot) => {
 💎 *Diamond Balance:* \`${diamondBalance} 💎\`
 ━━━━━━━━━━━━━━━
 
-🔁 *Note:* You earn 1% daily income based on your diamond balance.
+🔁 *Note:* You earn *1%* daily income based on your diamond balance.
 💸 *Payout every Friday night automatically!*
     `;
 
