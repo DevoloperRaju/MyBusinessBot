@@ -1,21 +1,19 @@
 module.exports = (bot, chatId, userId) => {
-  // আপনার বটের ইউজারনেম বসাও নিচে
-  const botUsername = 'YourBotUsername'; // example: MyCoolBot
+  const botUsername = 'YourBotUsername'; // তোমার বটের ইউজারনেম বসাও
   const referralLink = `https://t.me/${botUsername}?start=${userId}`;
-
-  // এগুলো ডেটাবেস থেকে আনলে ভালো হয়, এখন ডেমো দিচ্ছি
-  const totalReferrals = 3;
+  const totalReferrals = 3; // ডেমো ভ্যালু
 
   const message = `
 👥 *Your Referral Info*
 
 ━━━━━━━━━━━━━━━
-🔗 *Your Link:* [Click to Share](${referralLink})
+🔗 *Your Referral Link:* 
+\`${referralLink}\`
+
+📋 _Click and hold to copy this link_
 👤 *Total Referrals:* \`${totalReferrals}\`
 
-💎 You will earn *10% bonus* from each referral’s income — for *lifetime*!
-
-*Keep sharing to earn more!*
+💎 You earn *10%* of your referral’s daily income — for *lifetime*!
 ━━━━━━━━━━━━━━━
   `;
 
