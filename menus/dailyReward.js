@@ -2,11 +2,9 @@ module.exports = (bot, chatId) => {
   const menu = {
     reply_markup: {
       keyboard: [
-        ['🎁 G', '🕑 H'],
-        ['📢 N', '👥 O'],
-        ['💰 S', '💎 S'],
-        ['🧩 L', '📢 P'],
-        ['⬅️ Previous Page', '🏅 L']
+        ['🎁 Daily Bonus', '🎨 Color Game'],
+        ['🎟️ Lucky Draw', '🔢 Random Number'],
+        ['⬅️ Previous Page', '🏅 Winner List']
       ],
       resize_keyboard: true
     }
