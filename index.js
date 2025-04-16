@@ -29,5 +29,7 @@ bot.on('message', (msg) => {
     require('./menus/balance')(bot, chatId);
   } else if (text === '👥 Referral') {
   require('./menus/referral')(bot, chatId, msg.from.id);
-}
+  } else if (text === '🧾 Balance') {
+    require('./menus/dailyReward')(bot, chatId);
+  }
 });
