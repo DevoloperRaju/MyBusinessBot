@@ -14,7 +14,7 @@ module.exports = {
       userStates[chatId] = {}; // Reset user state
 
       if (userAnswer === "2023") {
-        bot.sendMessage(chatId, "✅ Correct answer! You’ve received 10 Diamond bonus.\n\n*(Note: This is a demo, no diamonds were actually added.)*");
+        bot.sendMessage(chatId, "✅ Correct answer! You’ve received 10 Diamond bonus.\n\n(Note: This is a demo, no diamonds were actually added.)");
       } else {
         bot.sendMessage(chatId, "❌ Incorrect answer. Please try again tomorrow.");
       }
