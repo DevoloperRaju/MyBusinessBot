@@ -3,7 +3,7 @@ module.exports = (bot, chatId) => {
     reply_markup: {
       keyboard: [
         ['🧾 Balance', '👥 Referral'],
-        ['✅ Daily Task', '🆘 Support'],
+        ['✅ Daily Reward', '🆘 Support'],
         ['🏆 Achievement', '🙍‍♂️ Profile'],
         ['🚀 Our Project'],
         ['💰 To 💎', '➡️ Next Page']
