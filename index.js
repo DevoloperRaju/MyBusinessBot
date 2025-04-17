@@ -46,6 +46,8 @@ bot.on('message', (msg) => {
     handleColorGame(bot, chatId); // ✅ Color Game Handler
   } else if (text === '🎟️ Lucky Draw') {
     handleLuckyDraw(bot, chatId); // ✅ Lucky Draw Handler
+  } else if (text === '🔢 Random Number') {
+  handleRandomNumber(bot, chatId);
   } else if (text === '🏠 Go To Home') {
     const welcomeMessage = `Welcome to our bot! 
 Here you will find many exciting options. 
