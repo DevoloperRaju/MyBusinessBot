@@ -3,6 +3,7 @@ const mainMenu = require('./menus/mainMenu');
 const { handleDailyBonus, checkAnswer } = require('./menus/dailyBonus');
 const { handleColorGame, handleColorCallback } = require('./menus/colorGame'); // ✅ Color Game
 const { handleLuckyDraw, handleLuckyCallback } = require('./menus/luckyDraw'); // ✅ Lucky Draw
+const { handleRandomNumber, handleRandomCallback } = require('./menus/randomNumberGame');
 
 const token = process.env.BT || 'YOUR_BOT_TOKEN';
 const bot = new TelegramBot(token, { polling: true });
