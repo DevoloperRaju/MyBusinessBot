@@ -31,7 +31,7 @@ bot.on('message', (msg) => {
   }
 
   // Menu buttons
-  if (text === '➡️ Next Page') {
+//  if (text === '➡️ Next Page') {
     require('./menus/nextMenu')(bot, chatId);
   } else if (text === '⬅️ Previous Page') {
     require('./menus/mainMenu')(bot, chatId);
