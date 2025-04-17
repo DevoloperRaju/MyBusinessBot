@@ -7,8 +7,8 @@ const bot = new TelegramBot(token, { polling: true });
 
 const userStates = {}; // To track answer state
 
-// /start command
-bot.onText(/\/start/, (msg) => {
+// 🏠 Go To Home button command (used instead of /start)
+bot.onText(/🏠 Go To Home/, (msg) => {
   const chatId = msg.chat.id;
   const welcomeMessage = `Welcome to our bot!
 Here you will find many exciting options.
