@@ -1,13 +1,13 @@
 const TelegramBot = require('node-telegram-bot-api');
 const mainMenu = require('./menus/mainMenu');
 const { handleDailyBonus, checkAnswer } = require('./menus/dailyBonus');
+const { handleColorGame, handleColorCallback } = require('./menus/colorGame'); // ✅ New Line
 
 const token = process.env.BT || 'YOUR_BOT_TOKEN';
 const bot = new TelegramBot(token, { polling: true });
 
 const userStates = {}; // To track answer state
 
-// /start command (যদি future use হয়, না হলে এ অংশ বাদ দিতে পারো)
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const welcomeMessage = `Welcome to our bot! 
@@ -19,18 +19,15 @@ Please select from the menu below.`;
   });
 });
 
-// Button handlers
 bot.on('message', (msg) => {
   const text = msg.text;
   const chatId = msg.chat.id;
 
-  // If expecting an answer for Daily Bonus
   if (userStates[chatId]?.expectingAnswer) {
     checkAnswer(bot, msg, userStates);
     return;
   }
 
-  // Menu buttons
   if (text === '➡️ Next Page') {
     require('./menus/nextMenu')(bot, chatId);
   } else if (text === '⬅️ Previous Page') {
@@ -43,8 +40,9 @@ bot.on('message', (msg) => {
     require('./menus/dailyReward')(bot, chatId);
   } else if (text === '🎁 Daily Bonus') {
     handleDailyBonus(bot, chatId, userStates);
+  } else if (text === '🎨 Color Game') { // ✅ New Button Handler
+    handleColorGame(bot, chatId);
   } else if (text === '🏠 Go To Home') {
-    // This replaces /start functionality
     const welcomeMessage = `Welcome to our bot! 
 Here you will find many exciting options. 
 Please select from the menu below.`;
@@ -53,4 +51,9 @@ Please select from the menu below.`;
       mainMenu(bot, chatId);
     });
   }
+});
+
+// ✅ Inline Callback Handler
+bot.on('callback_query', (query) => {
+  handleColorCallback(bot, query);
 });
