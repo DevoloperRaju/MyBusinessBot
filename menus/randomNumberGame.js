@@ -1,36 +1,36 @@
-function handleRandomNumber(bot, chatId) {
-  const numberButtons = [];
-  for (let i = 1; i <= 10; i += 2) {
-    numberButtons.push([
-      { text: `${i}`, callback_data: `rn_pick_${i}` },
-      { text: `${i + 1}`, callback_data: `rn_pick_${i + 1}` },
-    ]);
-  }
+function handleRandomNumberGame(bot, chatId) {
+  const opts = {
+    reply_markup: {
+      inline_keyboard: [
+        [1,2,3,4,5].map(num => ({ text: `${num}`, callback_data: `rn_select_${num}` })),
+        [6,7,8,9,10].map(num => ({ text: `${num}`, callback_data: `rn_select_${num}` })),
+        [{ text: '❌ Cancel', callback_data: 'rn_cancel' }]
+      ]
+    }
+  };
 
-  numberButtons.push([{ text: '❌ Cancel', callback_data: 'rn_cancel' }]);
-
-  bot.sendMessage(chatId, 'Pick a number between 1 to 10:', {
-    reply_markup: { inline_keyboard: numberButtons }
-  });
+  bot.sendMessage(chatId, 'Pick a number between 1 and 10. Entry cost: 10 diamonds.', opts);
 }
 
-function handleRandomCallback(bot, query, userStates = {}) {
+const userRandomSelections = {};
+
+function handleRandomNumberCallback(bot, query) {
   const chatId = query.message.chat.id;
   const data = query.data;
 
   if (data === 'rn_cancel') {
-    return bot.editMessageText('Random Number game cancelled.', {
+    bot.editMessageText('Random Number game cancelled.', {
       chat_id: chatId,
       message_id: query.message.message_id
     });
+    return;
   }
 
-  // User picked a number
-  if (data.startsWith('rn_pick_')) {
-    const selected = parseInt(data.split('_')[2]);
-    userStates[chatId] = { randomSelected: selected };
+  if (data.startsWith('rn_select_')) {
+    const selectedNumber = data.split('_')[2];
+    userRandomSelections[chatId] = selectedNumber;
 
-    return bot.editMessageText(`You selected ${selected}. Confirm to continue.`, {
+    bot.editMessageText(`You selected number ${selectedNumber}.\n\nPlease confirm your entry.`, {
       chat_id: chatId,
       message_id: query.message.message_id,
       reply_markup: {
@@ -42,26 +42,22 @@ function handleRandomCallback(bot, query, userStates = {}) {
         ]
       }
     });
+    return;
   }
 
-  // Confirm action
-  if (data === 'rn_confirm' && userStates[chatId]?.randomSelected) {
-    const userNum = userStates[chatId].randomSelected;
-    const randomNum = Math.floor(Math.random() * 10) + 1;
-    const ticketNumber = 'RN-100';
+  if (data === 'rn_confirm') {
+    const selected = userRandomSelections[chatId];
+    delete userRandomSelections[chatId];
 
-    const resultText = userNum === randomNum
-      ? `Congratulations! You won!\n\nYour Number: ${userNum}\nResult: ${randomNum}`
-      : `Sorry, you lost.\n\nYour Number: ${userNum}\nResult: ${randomNum}`;
+    const ticketNumber = `RN-${selected}-100`; // ডেমো টিকিট
 
-    bot.editMessageText(`${resultText}\n\nTicket: ${ticketNumber}`, {
+    bot.editMessageText(`Your entry for Random Number is successful!\nTicket: ${ticketNumber}\nResult will be announced tonight.`, {
       chat_id: chatId,
       message_id: query.message.message_id
     });
 
-    // Cleanup state
-    delete userStates[chatId];
+    console.log(`User ${chatId} entered Random Number with ${selected}`);
   }
 }
 
-module.exports = { handleRandomNumber, handleRandomCallback };
+module.exports = { handleRandomNumberGame, handleRandomNumberCallback };
