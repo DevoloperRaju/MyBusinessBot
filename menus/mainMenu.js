@@ -1,16 +1,5 @@
 module.exports = (bot, chatId) => {
-  const menu = {
-    reply_markup: {
-      keyboard: [
-        ['🧾 Balance', '👥 Referral'],
-        ['✅ Daily Reward', '🆘 Support'],
-        ['🏆 Achievement', '🙍‍♂️ Profile'],
-        ['🚀 Our Project'],
-        ['💰 To 💎', '➡️ Next Page']
-      ],
-      resize_keyboard: true
-    }
-  };
+  const message = `Welcome to the Main Menu! Please choose an option below:`;
 
-  bot.sendMessage(chatId, 'Welcome to the Main Menu! Please choose an option below:', menu);
+  bot.sendMessage(chatId, message); // No reply_markup
 };
