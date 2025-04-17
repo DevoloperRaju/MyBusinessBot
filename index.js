@@ -64,6 +64,8 @@ bot.on('callback_query', (query) => {
   // Color Game Callbacks
   handleColorCallback(bot, query);
 
+handleRandomCallback(bot, query, userStates);
+
   // Lucky Draw Callback
   if (query.data.startsWith('lucky_')) {
     handleLuckyCallback(bot, query);
