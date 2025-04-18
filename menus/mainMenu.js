@@ -3,7 +3,7 @@ const menu = {
 reply_markup: {
 keyboard: [
 ['🧾 Balance', '👥 Referral'],
-['✅ Daily Reward', '🆘 Support'],
+['✅ Daily Reward', '🕑 History'],
 ['🏆 Achievement', '🙍‍♂️ Profile'],
 ['🚀 Our Project'],
 ['💰 To 💎', '➡️ Next Page']
