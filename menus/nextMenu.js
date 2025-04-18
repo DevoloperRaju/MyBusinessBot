@@ -2,7 +2,7 @@ module.exports = (bot, chatId) => {
   const menu = {
     reply_markup: {
       keyboard: [
-        ['🎁 Gift Code', '🕑 History'],
+        ['🎁 Gift Code', '🆘 Support'],
         ['📢 Notice', '👥 Our Admin'],
         ['💰 Send Money', '💎 Send Diamond'],
         ['🧩 Learn About IoLent', '📢 Promot Me'],
