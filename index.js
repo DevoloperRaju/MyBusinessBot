@@ -4,6 +4,7 @@ const { handleDailyBonus, checkAnswer } = require('./menus/dailyBonus');
 const { handleColorGame, handleColorCallback } = require('./menus/colorGame');
 const { handleLuckyDraw, handleLuckyCallback } = require('./menus/luckyDraw');
 const { handleRandomNumberGame, handleRandomNumberCallback } = require('./menus/randomNumberGame');
+const handleWinnerList = require('./menus/winnerList'); // ✅ Winner List handler
 
 const token = process.env.BT || 'YOUR_BOT_TOKEN';
 const bot = new TelegramBot(token, { polling: true });
@@ -48,6 +49,8 @@ bot.on('message', (msg) => {
     handleLuckyDraw(bot, chatId);
   } else if (text === '🔢 Random Number') {
     handleRandomNumberGame(bot, chatId);
+  } else if (text === '🏅 Winner List') {
+    handleWinnerList(bot, chatId); // ✅ Winner List handler call
   } else if (text === '🏠 Go To Home') {
     const welcomeMessage = `Welcome to our bot! 
 Here you will find many exciting options. 
