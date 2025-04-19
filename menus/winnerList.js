@@ -26,16 +26,22 @@ Total Winners: *${colorWinnerCount}*
 Winners: ${colorWinners}
 Reward per winner: *${colorDiamondPerWinner}* diamonds
 
+━━━━━━━━━━━━━━━━━━━━━━
+
 🎟️ *Lucky Draw*
 Total Winners: *10*
 Winners: ${luckyWinners}
 Reward per winner: *${luckyDiamondPerWinner}* diamonds
+
+━━━━━━━━━━━━━━━━━━━━━━
 
 🔢 *Random Number Game*
 Winning Number: *${winningNumber}*
 Total Winners: *${numberWinnerCount}*
 Winners: ${numberWinners}
 Reward per winner: *${numberDiamondPerWinner}* diamonds
+
+━━━━━━━━━━━━━━━━━━━━━
 `;
 
   bot.sendMessage(chatId, message, { parse_mode: "Markdown" });
