@@ -6,6 +6,7 @@ const { handleLuckyDraw, handleLuckyCallback } = require('./menus/luckyDraw');
 const { handleRandomNumberGame, handleRandomNumberCallback } = require('./menus/randomNumberGame');
 const handleWinnerList = require('./menus/winnerList'); // ✅ Winner List handler
 const showHistory = require('./menus/history'); // 🕑 History handler
+const ourProject = require('./menus/ourProject'); // 🚀 Our Project handler
 
 const token = process.env.BT || 'YOUR_BOT_TOKEN';
 const bot = new TelegramBot(token, { polling: true });
@@ -52,12 +53,14 @@ bot.on('message', (msg) => {
     handleRandomNumberGame(bot, chatId);
   } else if (text === '🏅 Winner List') {
     handleWinnerList(bot, chatId);
-} else if (text === '🏆 Achievement') {
+  } else if (text === '🏆 Achievement') {
     require('./menus/underConstruction')(bot, chatId);
-} else if (text === '🙍‍♂️ Profile') {
+  } else if (text === '🙍‍♂️ Profile') {
     require('./menus/profile')(bot, chatId);
   } else if (text === '🕑 History') {
     showHistory(bot, chatId); // ✅ Connected History
+  } else if (text === '🚀 Our Project') {
+    ourProject(bot, chatId); // ✅ Connected Our Project
   } else if (text === '🏠 Go To Home') {
     const welcomeMessage = `Welcome to our bot! 
 Here you will find many exciting options. 
