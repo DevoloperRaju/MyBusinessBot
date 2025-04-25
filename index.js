@@ -54,6 +54,8 @@ bot.on('message', (msg) => {
     handleWinnerList(bot, chatId);
 } else if (text === '🏆 Achievement') {
     require('./menus/underConstruction')(bot, chatId);
+} else if (text === '🙍‍♂️ Profile') {
+    require('./menus/profile')(bot, chatId);
   } else if (text === '🕑 History') {
     showHistory(bot, chatId); // ✅ Connected History
   } else if (text === '🏠 Go To Home') {
