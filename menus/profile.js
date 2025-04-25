@@ -4,7 +4,7 @@ module.exports = (bot, chatId) => {
       keyboard: [
         ['ℹ️ Set Wallet', 'ℹ️ Set FB'],
         ['ℹ️ Set Area', 'ℹ️ Set etc'],
-        ['➡️ Next Page']
+        ['⬅️ Previous Page']
       ],
       resize_keyboard: true
     }
